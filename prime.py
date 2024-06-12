@@ -56,7 +56,7 @@ def generate_primes_in_range(start: int, end: int) -> list:
     """
     Generate prime numbers in a range.
     Parameters:
-        start - begining of range
+        start - beginning of range
         end - end of range
     Returns: List of prime numbers in the range
     """
@@ -72,34 +72,27 @@ def generate_primes_in_range(start: int, end: int) -> list:
 if __name__ == "__main__":
     
     while True:
-        print(" ------ ")
-        print("Options: \
-          \n To check for prime number: 1 \
-          \n To generate prime numbers in a range: 2 \
-          \n To exit: 3")
-        
-        option = int(input("Enter Option: "))
+        try:
+            print(" ------ ")
+            print("Options: \
+              \n To check for prime number: 1 \
+              \n To generate prime numbers in a range: 2 \
+              \n To exit: 3")
 
-        if option == 1:
-            input_number = int(input("Enter a Number: "))
-            check_prime(input_number)
-        elif option == 2:
-            start = int(input("Enter start of range: "))
-            end = int(input("Enter end of range: "))
-            print("Primes: ", generate_primes_in_range(start, end))
-        elif option == 3:
-            print("Exiting...")
-            break
-        elif option < 1 or option > 3:
-            print("**Invalid Option. Try again.")
-            continue
+            option = int(input("Enter Option: "))
 
-        option_2 = str(input("Do you want to continue? (y/n): "))
-        if option_2 == 'n' or option_2 == 'N':
-            print("Exiting...")
-            break
-        elif option_2 == 'y' or option_2 == 'Y':
-            continue
-        else:
-            print("**Invalid Option. Exiting...")
-            break
+            if option == 1:
+                input_number = int(input("Enter a Number: "))
+                check_prime(input_number)
+            elif option == 2:
+                start = int(input("Enter start of range: "))
+                end = int(input("Enter end of range: "))
+                print("Primes: ", generate_primes_in_range(start, end))
+            elif option == 3:
+                print("Exiting...")
+                break
+            else:
+                print("**Invalid Option. Try again.")
+                continue
+        except ValueError:
+            print("Invalid input.")
